@@ -1,3 +1,47 @@
 body {
     background-color: lightblue;
+    font-family: "Gill Sans", sans-serif;
+    margin-left: 5%;
+}
+
+p {
+  font-size: 20px;
+}
+
+.message_box {
+  text-align: left;
+  font-style: italic;
+  padding: 1%;
+  width: 30%;
+}
+
+.post_box {
+  text-align: left;
+  background-color: #D1F2EB;
+  color: #283747;
+  padding: 1%;
+  width: 30%;
+}
+
+.alert_box {
+  width: 30%;
+}
+
+.btn {
+  background-color: white;
+  color: #4CAF50;
+  border: none;
+  text-align: center;
+  width: 5%;
+  padding: 10px 10px;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.btn_hover:hover {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
 }

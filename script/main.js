@@ -11,12 +11,20 @@ function processForm(){
   var getSplitMessage = messageSplit(message);
 
   // Verify if an theres an error
-  if (getSplitMessage[0] !== "")
+  if (getSplitMessage[0] !== "") {
+    $('#success-failed').show();
+    setTimeout(function () {
+      $('#success-failed').fadeOut();
+    }, 2000);
     document.getElementById('postMessage').innerHTML = getSplitMessage[0];
-  else{
+  } else {
     var finalMessage = "";
     getSplitMessage.forEach(function(sentence) {
       if (sentence !== ""){
+        $('#success-alert').show();
+        setTimeout(function () {
+          $('#success-alert').fadeOut();
+        }, 2000);
         finalMessage = finalMessage + sentence + "<br>";
       }
 

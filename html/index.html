@@ -3,8 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
     <link href="../css/mystyle.css" rel="stylesheet" type="text/css" />
     <title>twitSplit</title>
+    <!-- Scripts -->
     <script src="../script/main.js"></script>
     <script src="../script/splitMessage.js"></script>
   </head>
@@ -18,22 +26,21 @@
 
           <!-- Form to input message -->
           <div id="messageDiv">
-            <div action="/main.html" id="popup-form">
-              <div>
-                <h3>Message</h3>
-                <p>
-                  <!-- Message box -->
-                  <textarea id="messageBox" rows="4" cols="50"></textarea>
-                </p>
-                <button onClick="processForm()">Post</button>
-              </div>
+            <div>
+              <h3>Message</h3>
+              <p>
+                <!-- Message box -->
+                <textarea id="messageBox" rows="4" cols="50" class="message_box"></textarea>
+              </p>
+              <button class="btn btn_hover" onClick="processForm()">Post</button>
             </div>
           </div>
 
           <br>
-
+          <div class="alert_box alert alert-success" id="success-alert" role="alert" style="display:none;" >Success! Please see post message below</div>
+          <div class="alert_box alert alert-danger" id="success-failed" role="alert" style="display:none;" >Failed! Please see error message below</div>
           <!-- Post message -->
-          <div id="postMessageDiv">
+          <div class="post_box">
             <p id="postMessage"></p>
           </div>
 
