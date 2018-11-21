@@ -7,14 +7,16 @@ const app = require('../splitMessage').messageSplit;
 describe('Message contains less than 50 characters', function(){
   it('Should return the orignal input message', function(){
     // Expected value
-    var expectedMessageArray = new Array();
-    expectedMessageArray.push("");
-    expectedMessageArray.push("Hi! My name is LeBron James.");
-    var expectedMessage = expectedMessageArray.toString
+    var expectedMessage = new Array();
+    expectedMessage.push("");
+    expectedMessage.push("Hi! My name is LeBron James.");
 
-    var actualMessage = app("Hi! My name is LeBron James.").toString
+    var actualMessage = app("Hi! My name is LeBron James.");
 
-    assert.equal(actualMessage, expectedMessage);
+    // Verify arraylist for expected and actual values
+    for (var i = 0; i < expectedMessage.length; i++){
+      assert.equal(expectedMessage[i], actualMessage[i]);
+    }
   });
 });
 
@@ -24,16 +26,18 @@ describe('Message contains less than 50 characters', function(){
  describe('Message contains more than 50 characters', function(){
    it('Should return the message chunks', function(){
      // Expected value
-     var expectedMessageArray = new Array();
-     expectedMessageArray.push("");
-     expectedMessageArray.push("1/2 I can't believe Tweeter now supports chunking");
-     expectedMessageArray.push("2/2 my messages, so I don't have to do it myself.");
-     var expectedMessage = expectedMessageArray.toString
+     var expectedMessage = new Array();
+     expectedMessage.push("");
+     expectedMessage.push("1/2 I can't believe Tweeter now supports chunking ");
+     expectedMessage.push("2/2 my messages, so I don't have to do it myself. ");
 
      var actualMessage =
-      app("I can't believe Tweeter now supports chunking my messages, so I don't have to do it myself.").toString
+      app("I can't believe Tweeter now supports chunking my messages, so I don't have to do it myself.");
 
-     assert.equal(actualMessage, expectedMessage);
+      // Verify arraylist for expected and actual values
+      for (var i = 0; i < expectedMessage.length; i++){
+        assert.equal(expectedMessage[i], actualMessage[i]);
+      }
    });
  });
 
@@ -43,13 +47,15 @@ describe('Message contains less than 50 characters', function(){
   describe('Message contains word/s with more than 50 characters', function(){
     it('Should return error message', function(){
       // Expected value
-      var expectedMessageArray = new Array();
-      expectedMessageArray.push("[ERROR 1] The message contains word/s with more than 50 characters.");
-      var expectedMessage = expectedMessageArray.toString
+      var expectedMessage = new Array();
+      expectedMessage.push("[ERROR 1] The message contains word/s with more than 50 characters.");
 
       var actualMessage =
-        app("I can't believeTweeternowsupportschunkingmymessages,soIdon'thave to do it myself.").toString
+        app("I can't believeTweeternowsupportschunkingmymessages,soIdon'thave to do it myself.");
 
-      assert.equal(actualMessage, expectedMessage);
+      // Verify arraylist for expected and actual values
+      for (var i = 0; i < expectedMessage.length; i++){
+        assert.equal(expectedMessage[i], actualMessage[i]);
+      }
     });
   });
