@@ -3,8 +3,6 @@ Main script for twiter web app
 */
 // This where the form will be processed
 
-const messageSplit = require('../mochatest/splitMessage.js').messageSplit;
-
 window.onload=function(){
 
   var postButton = document.getElementById('post-btn');

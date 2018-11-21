@@ -19,6 +19,9 @@ function messageSplit(message){
   var finalMessage = new Array();
   var messageAry = new Array();
 
+  // Trim message to cut whitespace/s at the end
+  message = message.trim();
+
  // Check if message is more than 50 chars
  if(message.length > 50){
 
@@ -26,11 +29,11 @@ function messageSplit(message){
      var tempMessage = "";
      var ctr = 1;
 
+     // Initialize value with no error
      finalMessage.push("");
 
      // Get line counts and reset ctr to 1
      var lineCount = getTotalLines(message);
-     console.log("Line count = " + lineCount);
 
      if(lineCount === 0){
         finalMessage[0] = "[ERROR 1] The message contains word/s with more than 50 characters."
@@ -68,6 +71,7 @@ function messageSplit(message){
      }
  } else {
    // Return original message
+   finalMessage.push("");
    finalMessage.push(message);
    return finalMessage;
  }
@@ -89,6 +93,9 @@ function getTotalLines(message){
   }
   while (count < 0);
 
+  // Divide initial count to 10
+  initialCount = initialCount / 10;
+
   // Return count value
   return countLines(message, initialCount);
 
@@ -102,13 +109,14 @@ It will return three values:
 1 : process is successful
  */
 function countLines(message, initialCount){
-  console.log("NOT EXCEEDING COUNT : " + (initialCount * 10));
+
   // Variables
   var origMessage = message;
   var tempMessage = "";
   var ctr = 1;
   var intStr = initialCount.toString();
   var tempSumStr = "";
+  var inCtr = initialCount * 10;
 
   // Split message by whitespace
   messageAry = message.split(" ");
@@ -118,6 +126,8 @@ function countLines(message, initialCount){
     tempSumStr = tempSumStr + "*";
   }
 
+  var bool = false;
+
   // Loop words to count lines
   messageAry.forEach(function(word) {
     // Can not stop forEach loop but will end each process
@@ -125,22 +135,21 @@ function countLines(message, initialCount){
       return;
     }
 
-    // console.log("ctr count : " + ctr);
-    // console.log("temp message : " + tempMessage);
-    // console.log("message length : " + (tempMessage + word).length);
-
     // Verify if word is not more than 50 characters
     if(word.length <= 50){
         if(tempMessage === ""){
+            if(bool){
+              ctr ++;
+            }
             tempMessage = ctr + "/" + tempSumStr + " " + word + " ";
         } else if ((tempMessage + word).length == 50){
             tempMessage = "";
-            ctr ++;
+            bool = true;
         } else if ((tempMessage + word).length < 50) {
             tempMessage = tempMessage + word + " ";
         } else if ((tempMessage + word).length > 50){
           // Check if counter is greater than the initial total
-          if(ctr === (initialCount * 10) || ctr > (initialCount * 10)){
+          if(ctr >= inCtr){
               ctr = -1;
           }else{
             ctr++;
