@@ -42,8 +42,6 @@ module.exports = {
           return finalMessage;
        } else {
 
-         ctr=1;
-
          // Split message by whitespace
          messageAry = message.split(" ");
 
