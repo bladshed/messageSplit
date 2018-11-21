@@ -5,7 +5,7 @@ body {
 }
 
 p {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .message_box {
@@ -19,6 +19,7 @@ p {
   text-align: left;
   background-color: #D1F2EB;
   color: #283747;
+  border-style: ridge;
   padding: 1%;
   width: 30%;
 }
