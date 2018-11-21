@@ -43,8 +43,6 @@ module.exports = {
           return finalMessage;
        } else {
 
-         ctr=1;
-
          // Split message by whitespace
          messageAry = message.split(" ");
 
@@ -112,7 +110,6 @@ It will return three values:
 1 : process is successful
  */
 function countLines(message, initialCount){
-  var inCtr = initialCount * 10;
 
   // Variables
   var origMessage = message;
@@ -120,6 +117,7 @@ function countLines(message, initialCount){
   var ctr = 1;
   var intStr = initialCount.toString();
   var tempSumStr = "";
+  var inCtr = initialCount * 10;
 
   // Split message by whitespace
   messageAry = message.split(" ");
